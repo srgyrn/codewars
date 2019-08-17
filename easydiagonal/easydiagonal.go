@@ -3,12 +3,12 @@ package easydiagonal
 import "math/big"
 
 func Diagonal(n, p int) int {
-	var result, binomial big.Int
+	var result, binomial1, binomial2 big.Int
 
-	for i := 0; i <= n; i++ {
-		binomial.Binomial(int64(i), int64(p))
-		result = *result.Add(&result, &binomial)
-	}
+	binomial1.Binomial(int64(n), int64(p))
+	binomial2.Binomial(int64(n), int64(p+1))
+
+	result = *result.Add(&binomial1, &binomial2)
 
 	return int(result.Int64())
 }
