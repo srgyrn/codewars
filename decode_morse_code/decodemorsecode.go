@@ -1,4 +1,4 @@
-package decode_morse_code
+package decodemorsecode
 
 import (
 	"strings"
